@@ -67,9 +67,19 @@ extension LoginViewController: ViewSetupProtocol {
         ])
     }
     
-    @objc func dismissKeyboard() {
+    func setupAdditionalConfiguration() {
         
-        view.endEditing(true)
+        view.backgroundColor = .backSecondary
+
         
+        // MARK: HEADER GRADIENT
+        let gradientStart: UIColor = .gradientStart
+        let gradientEnd: UIColor = .gradientEnd
+        
+        gradientLayer.colors = [gradientStart.cgColor,gradientEnd.cgColor]
+        gradientLayer.startPoint = CGPoint(x: 0.5, y: 0)
+        gradientLayer.endPoint = CGPoint(x: 0.5, y: 1)
+        headerView.layer.insertSublayer(gradientLayer, at: 0)
+
     }
 }

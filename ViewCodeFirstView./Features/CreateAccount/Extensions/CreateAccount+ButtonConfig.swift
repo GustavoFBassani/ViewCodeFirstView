@@ -10,7 +10,6 @@ import UIKit
 
 extension CreateAccountViewController {
     
-    
     func textFieldDidChangeSelection(_ textField: UITextField) {
         guard let password = textField.text else { return }
         
@@ -63,6 +62,7 @@ extension CreateAccountViewController {
             specialCharComponent.imageColor = .red
 
         }
+        
     }
     
     //MARK: BUTTON ACTION
@@ -124,5 +124,6 @@ extension CreateAccountViewController {
             print(existingUser)
             
         }
+        
     }
 }

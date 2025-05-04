@@ -208,24 +208,8 @@ class LoginViewController: UIViewController {
         super.viewDidLoad()
         
         setup()
+        setupGestureRecognizer()
         
-        view.backgroundColor = .backSecondary
-
-        
-        // MARK: HEADER GRADIENT
-        let gradientStart: UIColor = .gradientStart
-        let gradientEnd: UIColor = .gradientEnd
-        
-        gradientLayer.colors = [gradientStart.cgColor,gradientEnd.cgColor]
-        gradientLayer.startPoint = CGPoint(x: 0.5, y: 0)
-        gradientLayer.endPoint = CGPoint(x: 0.5, y: 1)
-        headerView.layer.insertSublayer(gradientLayer, at: 0)
-        
-        //MARK: KEYBOARD CONFIG
-        let gestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
-
-        view.addGestureRecognizer(gestureRecognizer)
-                
     }
     
     override func viewDidLayoutSubviews() {

@@ -251,13 +251,7 @@ class CreateAccountViewController: UIViewController, UITextFieldDelegate {
     override func viewDidLoad() {
         
         setup()
-        
-        passwordComponent.delegate = self
-        
-        //MARK: KEYBOARD CONFIG
-        let gestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
-        
-        view.addGestureRecognizer(gestureRecognizer)
+        setupGestureRecognizer()
         
     }
     

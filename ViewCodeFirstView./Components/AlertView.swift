@@ -17,13 +17,15 @@ class AlertView: UIView {
         super.init(frame: .zero)
         
         alertController.addAction(alertAction)
-        
+
         viewController.present(alertController, animated: true)
-        
+
     }
     
     required init?(coder: NSCoder) {
+        
         fatalError("init(coder:) has not been implemented")
+        
     }
 }
 

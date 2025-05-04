@@ -8,6 +8,9 @@
 import UIKit
 
 extension CreateAccountViewController: ViewSetupProtocol {
+    
+
+    
     //MARK: SUB VIEWS
     func addSubViews() {
 
@@ -39,9 +42,10 @@ extension CreateAccountViewController: ViewSetupProtocol {
     }
     
     
-    @objc func dismissKeyboard() {
+    
+    func setupAdditionalConfiguration() {
         
-        view.endEditing(true)
+        passwordComponent.delegate = self
         
     }
 }
