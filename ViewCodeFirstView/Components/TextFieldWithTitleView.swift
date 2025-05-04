@@ -142,6 +142,8 @@ class TextFieldWithTitleView: UIView {
 }
 
 extension TextFieldWithTitleView: ViewSetupProtocol {
+
+    
     func addSubViews() {
         addSubview(componentStack)
     }

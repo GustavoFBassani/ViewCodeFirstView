@@ -26,7 +26,7 @@
 			exceptions = (
 				C4D1282A2DC2DB4400D5E19A /* Exceptions for "ViewCodeFirstView." folder in "ViewCodeFirstView" target */,
 			);
-			path = ViewCodeFirstView.;
+			path = ViewCodeFirstView;
 			sourceTree = "<group>";
 		};
 /* End PBXFileSystemSynchronizedRootGroup section */
@@ -79,7 +79,7 @@
 			name = ViewCodeFirstView;
 			packageProductDependencies = (
 			);
-			productName = ViewCodeFirstView.;
+			productName = ViewCodeFirstView;
 			productReference = C4D128182DC2DB4400D5E19A /* ViewCodeFirstView.app */;
 			productType = "com.apple.product-type.application";
 		};
@@ -147,7 +147,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = W35YJ39H5L;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = ViewCodeFirstView./Info.plist;
+				INFOPLIST_FILE = ViewCodeFirstView/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -174,7 +174,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = W35YJ39H5L;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = ViewCodeFirstView./Info.plist;
+				INFOPLIST_FILE = ViewCodeFirstView/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";

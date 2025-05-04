@@ -26,4 +26,6 @@ extension ViewSetupProtocol {
         
     }
     
+    func setupAdditionalConfiguration() {}
+    
 }

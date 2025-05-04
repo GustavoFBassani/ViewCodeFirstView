@@ -89,10 +89,6 @@ class PassVerificationView: UIView {
 }
 
 extension PassVerificationView:ViewSetupProtocol {
-    func setupAdditionalConfiguration() {
-        <#code#>
-    }
-    
     
     func addSubViews() {
         
