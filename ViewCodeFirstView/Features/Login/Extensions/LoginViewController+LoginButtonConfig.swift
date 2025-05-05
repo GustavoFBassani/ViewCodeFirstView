@@ -43,9 +43,6 @@ extension LoginViewController {
                 self.wrongAccountWarning.isHidden = true 
                 
             }
-            
-            
-            
         }
     }
 }

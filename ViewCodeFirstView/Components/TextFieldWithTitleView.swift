@@ -145,7 +145,9 @@ extension TextFieldWithTitleView: ViewSetupProtocol {
 
     
     func addSubViews() {
+        
         addSubview(componentStack)
+        
     }
         
     //MARK: CONSTRAINTS

@@ -143,7 +143,7 @@ class CreateAccountViewController: UIViewController, UITextFieldDelegate {
     
     lazy var passwordVerificationStack: UIStackView = {
         
-        var stack = UIStackView(arrangedSubviews: [lessCharComponent,oneNumberComponent,upperCaseComponent  ,specialCharComponent])
+        var stack = UIStackView(arrangedSubviews: [lessCharComponent,oneNumberComponent,upperCaseComponent, specialCharComponent])
         
         stack.translatesAutoresizingMaskIntoConstraints = false
         stack.axis = .vertical
@@ -231,19 +231,14 @@ class CreateAccountViewController: UIViewController, UITextFieldDelegate {
         return stack
     }()
     
-    //MARK: CREATE ACCOUNT BUTTON
-    lazy var AccountButton: UIButton = {
+    lazy var accountButtonComponent: ButtonView = {
         
-        var button = UIButton()
-        
-        button.translatesAutoresizingMaskIntoConstraints = false
-        button.setTitle("Create Account", for: .normal)
-        button.titleLabel?.font = UIFont.systemFont(ofSize: 17, weight: .semibold)
-        button.layer.cornerRadius = 12
-        button.backgroundColor = .accent
-        
-        button.addTarget(self, action: #selector(handleAccountButtonTap), for: .touchUpInside)
-        
+        var button = ButtonView()
+        button.translatesAutoresizingMaskIntoConstraints = false 
+        button.buttonTitle = "Create Account"
+        button.buttonBackGroundColor = .accent
+        button.addButtonAction = {self.handleAccountButtonTap()}
+
         return button
         
     }()

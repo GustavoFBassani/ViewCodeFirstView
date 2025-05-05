@@ -17,7 +17,8 @@ extension CreateAccountViewController: ViewSetupProtocol {
         view.backgroundColor = .backSecondary
         view.addSubview(accountTitleLabel)
         view.addSubview(mainStack)
-        view.addSubview(AccountButton)
+        view.addSubview(accountButtonComponent)
+
         
     }
     
@@ -33,15 +34,13 @@ extension CreateAccountViewController: ViewSetupProtocol {
             mainStack.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 16),
             mainStack.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -16),
             
-            AccountButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -66),
-            AccountButton.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 16),
-            AccountButton.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -16),
-            AccountButton.heightAnchor.constraint(equalToConstant: 50)
+            accountButtonComponent.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -66),
+            accountButtonComponent.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 16),
+            accountButtonComponent.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -16),
+            accountButtonComponent.heightAnchor.constraint(equalToConstant: 50)
             
         ])
     }
-    
-    
     
     func setupAdditionalConfiguration() {
         

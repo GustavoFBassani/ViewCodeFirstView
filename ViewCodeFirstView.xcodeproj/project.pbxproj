@@ -11,7 +11,7 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
-		C4D1282A2DC2DB4400D5E19A /* Exceptions for "ViewCodeFirstView." folder in "ViewCodeFirstView" target */ = {
+		C4D1282A2DC2DB4400D5E19A /* Exceptions for "ViewCodeFirstView" folder in "ViewCodeFirstView" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
 				Info.plist,
@@ -21,10 +21,10 @@
 /* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
-		C4D1281A2DC2DB4400D5E19A /* ViewCodeFirstView. */ = {
+		C4D1281A2DC2DB4400D5E19A /* ViewCodeFirstView */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			exceptions = (
-				C4D1282A2DC2DB4400D5E19A /* Exceptions for "ViewCodeFirstView." folder in "ViewCodeFirstView" target */,
+				C4D1282A2DC2DB4400D5E19A /* Exceptions for "ViewCodeFirstView" folder in "ViewCodeFirstView" target */,
 			);
 			path = ViewCodeFirstView;
 			sourceTree = "<group>";
@@ -45,7 +45,7 @@
 		C4D1280F2DC2DB4400D5E19A = {
 			isa = PBXGroup;
 			children = (
-				C4D1281A2DC2DB4400D5E19A /* ViewCodeFirstView. */,
+				C4D1281A2DC2DB4400D5E19A /* ViewCodeFirstView */,
 				C4D128192DC2DB4400D5E19A /* Products */,
 			);
 			sourceTree = "<group>";
@@ -74,7 +74,7 @@
 			dependencies = (
 			);
 			fileSystemSynchronizedGroups = (
-				C4D1281A2DC2DB4400D5E19A /* ViewCodeFirstView. */,
+				C4D1281A2DC2DB4400D5E19A /* ViewCodeFirstView */,
 			);
 			name = ViewCodeFirstView;
 			packageProductDependencies = (

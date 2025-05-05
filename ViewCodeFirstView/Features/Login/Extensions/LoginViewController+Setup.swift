@@ -53,8 +53,8 @@ extension LoginViewController: ViewSetupProtocol {
             buttonStack.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 16),
             buttonStack.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -16),
             
-            loginButton.heightAnchor.constraint(equalToConstant: 50),
-            createAccountButton.heightAnchor.constraint(equalToConstant: 50),
+            loginButtonComponent.heightAnchor.constraint(equalToConstant: 50),
+            createAccountButtonComponent.heightAnchor.constraint(equalToConstant: 50),
             
             forgotPasswordButton.topAnchor.constraint(equalTo: mainStack.bottomAnchor, constant: 20),
             forgotPasswordButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16),

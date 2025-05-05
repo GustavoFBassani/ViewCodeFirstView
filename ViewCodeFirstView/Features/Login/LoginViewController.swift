@@ -159,39 +159,68 @@ class LoginViewController: UIViewController {
     }()
     
     //MARK: LOGIN BUTTON
-    lazy var loginButton: UIButton = {
-        var button = UIButton()
+//    lazy var loginButton: UIButton = {
+//        var button = UIButton()
+//        
+//        button.translatesAutoresizingMaskIntoConstraints = false
+//        button.setTitle("Login", for: .normal)
+//        button.titleLabel?.font = UIFont.systemFont(ofSize: 17, weight: .semibold)
+//        button.backgroundColor = .accent
+//        button.layer.cornerRadius = 12
+//        button.addTarget(self, action: #selector(handleAccountButtonTap), for: .touchUpInside)
+//        
+//        return button
+//        
+//    }()
+//    
+//    //MARK: CREATE ACCOUNT BUTTON
+//    lazy var createAccountButton: UIButton = {
+//        var button = UIButton()
+//        
+//        button.translatesAutoresizingMaskIntoConstraints = false
+//        button.setTitle("Create Account", for: .normal)
+//        button.titleLabel?.font = UIFont.systemFont(ofSize: 17, weight: .semibold)
+//        button.setTitleColor(.accent, for: .normal)
+//        button.backgroundColor = .backTertiary
+//        button.layer.cornerRadius = 12
+//        button.addTarget(self, action: #selector(goToCreateAccount), for: .touchUpInside)
+//        
+//        return button
+//    }()
+    
+    lazy var loginButtonComponent: ButtonView = {
+        
+        var button = ButtonView()
         
         button.translatesAutoresizingMaskIntoConstraints = false
-        button.setTitle("Login", for: .normal)
-        button.titleLabel?.font = UIFont.systemFont(ofSize: 17, weight: .semibold)
-        button.backgroundColor = .accent
-        button.layer.cornerRadius = 12
-        button.addTarget(self, action: #selector(handleAccountButtonTap), for: .touchUpInside)
-        
+        button.buttonTitle = "Login"
+        button.buttonBackGroundColor = .accent
+        button.addButtonAction = {self.handleAccountButtonTap()}
+
         return button
+        
         
     }()
     
-    //MARK: CREATE ACCOUNT BUTTON
-    lazy var createAccountButton: UIButton = {
-        var button = UIButton()
+    lazy var createAccountButtonComponent: ButtonView = {
+        
+        var button = ButtonView()
         
         button.translatesAutoresizingMaskIntoConstraints = false
-        button.setTitle("Create Account", for: .normal)
-        button.titleLabel?.font = UIFont.systemFont(ofSize: 17, weight: .semibold)
-        button.setTitleColor(.accent, for: .normal)
-        button.backgroundColor = .backTertiary
-        button.layer.cornerRadius = 12
-        button.addTarget(self, action: #selector(goToCreateAccount), for: .touchUpInside)
-        
+        button.buttonTitle = "Create Account"
+        button.buttonBackGroundColor = .backTertiary
+        button.buttonTextColor = .accent
+        button.addButtonAction = {self.goToCreateAccount()}
+
         return button
+        
+        
     }()
 
     //MARK: BUTTON STACK
     lazy var buttonStack: UIStackView = {
         
-        var stack = UIStackView(arrangedSubviews: [loginButton, createAccountButton])
+        var stack = UIStackView(arrangedSubviews: [loginButtonComponent, createAccountButtonComponent])
         
         stack.translatesAutoresizingMaskIntoConstraints = false
         stack.spacing = 16
