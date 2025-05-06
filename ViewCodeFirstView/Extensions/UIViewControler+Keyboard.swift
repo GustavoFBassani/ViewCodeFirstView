@@ -10,7 +10,6 @@ import UIKit
 
 extension UIViewController {
     
-    //MARK: KEYBOARD CONFIG
     func setupGestureRecognizer() {
         
         let gestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))

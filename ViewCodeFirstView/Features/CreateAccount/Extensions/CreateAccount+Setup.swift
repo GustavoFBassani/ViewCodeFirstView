@@ -19,7 +19,6 @@ extension CreateAccountViewController: ViewSetupProtocol {
         view.addSubview(mainStack)
         view.addSubview(accountButtonComponent)
 
-        
     }
     
     func setupConstraints() {

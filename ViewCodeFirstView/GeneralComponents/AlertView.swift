@@ -9,8 +9,8 @@ import UIKit
 
 class AlertView: UIView {
     
-    let alertController = UIAlertController(title: "", message: "", preferredStyle: .alert)
-    let alertAction = UIAlertAction(title: "Ok.", style: .cancel)
+    var alertController = UIAlertController(title: "", message: "", preferredStyle: .alert)
+    var alertAction = UIAlertAction(title: "Ok.", style: .cancel)
     
     init(viewController: UIViewController) {
         

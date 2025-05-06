@@ -11,24 +11,44 @@ import UIKit
 extension LoginViewController {
     @objc func handleAccountButtonTap() {
         
-        let users = Persistence.getUser()?.users ?? []
+        let users = Persistence.getUsers()?.users ?? []
+        var ExistentUser: User?
         
         let userExists = users.contains { user in
-            user.email == emailComponent.getTextField && user.password == passwordComponent.getTextField
+            
+            if user.email == emailComponent.getTextField && user.password == passwordComponent.getTextField {
+                
+                ExistentUser = User(name: user.email, date: user.date, email: user.email, password: user.password)
+            }
+            
+            return user.email == emailComponent.getTextField && user.password == passwordComponent.getTextField
+            
         }
         
         if userExists {
             
-            let alertView = AlertView(viewController: self)
+            //MARK: SAVING THE LOGGED USER
+            do {
+                
+                let encoder = JSONEncoder()
+                let userEncoded =  try encoder.encode(ExistentUser)
+                UserDefaults.standard.set(userEncoded, forKey: keyUserLogged)
+                
+            } catch {
+                
+                print(error.localizedDescription)
+                
+            }
             
-            alertView.alertController.title = "You are logged!"
-            alertView.alertController.message = "iiiiihuuuulll"
-  
+            //MARK: TRANSITION TO TabBarViewController
+            let TabBarViewController = TabBarViewController()
+            (UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate)?.changeRootViewController(TabBarViewController)
+            
         } else  {
             
 
-            emailComponent.textFieldColor = .red
-            passwordComponent.textFieldColor = .red
+            emailComponent.textFieldBorderColor = .red
+            passwordComponent.textFieldBorderColor = .red
             emailComponent.textFieldBorder = 1
             passwordComponent.textFieldBorder = 1
             wrongAccountWarning.isHidden = false
@@ -38,8 +58,8 @@ extension LoginViewController {
                 
                 self.passwordComponent.textFieldBorder = 0
                 self.emailComponent.textFieldBorder = 0
-                self.passwordComponent.textFieldColor = nil
-                self.emailComponent.textFieldColor = nil
+                self.passwordComponent.textFieldBorderColor = nil
+                self.emailComponent.textFieldBorderColor = nil
                 self.wrongAccountWarning.isHidden = true 
                 
             }

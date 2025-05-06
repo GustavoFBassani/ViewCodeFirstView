@@ -71,7 +71,6 @@ extension LoginViewController: ViewSetupProtocol {
         
         view.backgroundColor = .backSecondary
 
-        
         // MARK: HEADER GRADIENT
         let gradientStart: UIColor = .gradientStart
         let gradientEnd: UIColor = .gradientEnd

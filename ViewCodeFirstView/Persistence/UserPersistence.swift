@@ -8,6 +8,7 @@
 import Foundation
 
 let key: String = "users"
+let keyUserLogged: String = "userLogged"
 
 struct User: Codable {
     
@@ -24,7 +25,7 @@ struct Users: Codable {
 
 struct Persistence {
     
-    static func getUser() -> Users? {
+    static func getUsers() -> Users? {
         
         if let users = UserDefaults.standard.value(forKey: key) as? Data{
             
@@ -32,8 +33,9 @@ struct Persistence {
             
             do {
                 
-                let userDecoded = try decoder.decode(Users.self, from: users )
-                return userDecoded
+                let usersDecoded = try decoder.decode(Users.self, from: users )
+                
+                return usersDecoded
                 
             } catch {
                 
@@ -47,7 +49,7 @@ struct Persistence {
     
     static func saveUser(newUser: User) {
 
-        var users = getUser() ?? Users(users: [])
+        var users = getUsers() ?? Users(users: [])
         users.users.append(newUser)
         
         do {

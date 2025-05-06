@@ -33,7 +33,15 @@ class TextFieldWithTitleView: UIView {
         textField.leftView = UIView(frame: CGRect(x: 0, y: 0, width: 12, height: 20))
         textField.leftViewMode = .always
         textField.backgroundColor = .sepPrimary
-
+        
+        textField.attributedPlaceholder = NSAttributedString(
+            string: "",
+            attributes: [
+                .foregroundColor: UIColor.labSecondary,
+                .font: UIFont.systemFont(ofSize: 17)
+            ]
+        )
+        
         return textField
         
     }()
@@ -80,6 +88,14 @@ class TextFieldWithTitleView: UIView {
         }
     }
     
+    var textFieldBackGroundColor: UIColor? {
+        didSet {
+            
+            componentTextField.backgroundColor = textFieldBackGroundColor
+            
+        }
+    }
+    
     var textFieldplaceHolder: String? {
         didSet {
             
@@ -108,10 +124,10 @@ class TextFieldWithTitleView: UIView {
         }
     }
     
-    var textFieldColor: UIColor? {
+    var textFieldBorderColor: UIColor? {
         didSet {
             
-            componentTextField.layer.borderColor = textFieldColor?.cgColor
+            componentTextField.layer.borderColor = textFieldBorderColor?.cgColor
 
         }
     }
@@ -124,6 +140,13 @@ class TextFieldWithTitleView: UIView {
         }
         
     }
+    
+    var textFieldPlaceHolderTextColor: UIColor? {
+        didSet {
+            componentTextField.attributedPlaceholder = NSAttributedString(string: "", attributes: [.foregroundColor: textFieldPlaceHolderTextColor ?? .black])
+        }
+    }
+    
     
     //MARK: INITS
     override init(frame: CGRect) {

@@ -11,7 +11,7 @@ class CreateAccountViewController: UIViewController, UITextFieldDelegate {
     
     //MARK: VARS
     let specialCharacters = CharacterSet.punctuationCharacters.union(.symbols)
-    let existingUser = Persistence.getUser()?.users
+    let existingUser = Persistence.getUsers()?.users
     
 
     //MARK: TITLE LABEL
