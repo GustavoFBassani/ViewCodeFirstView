@@ -99,6 +99,7 @@ class TaskViewController: UIViewController, addTaskDelegate {
                 taskToCompare.tasksTypeEnum == section
             })
             
+            
             rows.append(tasksPerSection)
         }
         
@@ -113,14 +114,12 @@ class TaskViewController: UIViewController, addTaskDelegate {
         
     }
     
-    
-    
-    
     //MARK: VIEWDIDLOAD
     override func viewDidLoad() {
         
         buildContent()
         setup()
+        tableView.register(TableViewCell.self, forCellReuseIdentifier: TableViewCell.reuseIdentifier)
         
     }
     
@@ -140,7 +139,7 @@ class TaskViewController: UIViewController, addTaskDelegate {
     //The function is called from the other NewTaskViewController (via delegate), but it's executed here.
     
     func didAddTask() {
-        print("ta saindo aqui?")
+        
         allTasksRecovered = TasksPersistence.getAllTasks()
         
     }

@@ -10,7 +10,13 @@ import UIKit
 extension TaskViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
         tableView.deselectRow(at: indexPath, animated: true)
+        
+        let editingTaskVC = TaskDetailsViewController()
+        let navVC = UINavigationController(rootViewController: editingTaskVC)
+        present(navVC, animated: true)
+        
     }
     
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {

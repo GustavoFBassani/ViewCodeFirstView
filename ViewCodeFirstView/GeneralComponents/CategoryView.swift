@@ -60,6 +60,7 @@ class categoryView: UIView {
         }
     }
     
+    
     lazy var selectButton: UIButton = {
         
         let button = UIButton()

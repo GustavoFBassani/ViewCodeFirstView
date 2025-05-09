@@ -10,7 +10,7 @@ extension TaskViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         
-        sections[section].rawValue
+        sections[section].rawValue.uppercased()
         
     }
     
@@ -31,19 +31,14 @@ extension TaskViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath)
-        
-        let allTasksOfSection = rows[indexPath.section]
-        let taskForRowAt = allTasksOfSection[indexPath.row]
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: TableViewCell.reuseIdentifier, for: indexPath) as? TableViewCell else { return UITableViewCell() }
         
         let task = getTask(by: indexPath)
         
-        var config = cell.defaultContentConfiguration()
-        
-        config.text = task.taskName
-        config.image = UIImage(systemName: task.tasksTypeEnum.imageName)
-        
-        cell.contentConfiguration = config
+        cell.config(labelText: task.taskName, taskIsDone: false) {
+            [weak self] in
+            
+        }
         
         return cell
         

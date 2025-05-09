@@ -89,7 +89,7 @@ class EmptyStateView: UIView {
             
         }()
     
-    // MARK: Functions
+    // MARK: INITS
     override init(frame: CGRect) {
         super.init(frame: frame)
         setup()

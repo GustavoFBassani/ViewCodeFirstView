@@ -9,7 +9,7 @@ import UIKit
 
 class TableViewCell: UITableViewCell {
     
-    static let reuseIdentifier = "PetCell-Identifies"
+    static let reuseIdentifier = "TaskCell-Identifies"
     
     lazy var buttonCircle: UIButton = {
         
@@ -58,6 +58,7 @@ class TableViewCell: UITableViewCell {
         
     }()
     
+    //MARK: INICIAL CELL CONFIG
     func config(labelText: String,
                 taskIsDone: Bool,
                 buttonAction: @escaping () -> Void) {
@@ -87,22 +88,3 @@ class TableViewCell: UITableViewCell {
     
 }
 
-extension TableViewCell: ViewSetupProtocol {
-    func addSubViews() {
-        
-        contentView.addSubview(stack)
-        
-    }
-    
-    func setupConstraints() {
-        
-        NSLayoutConstraint.activate([
-            
-            stack.topAnchor.constraint(equalTo: self.layoutMarginsGuide.topAnchor),
-            stack.bottomAnchor.constraint(equalTo: self.layoutMarginsGuide.bottomAnchor),
-            stack.leadingAnchor.constraint(equalTo: self.layoutMarginsGuide.leadingAnchor),
-            stack.trailingAnchor.constraint(equalTo: self.layoutMarginsGuide.trailingAnchor)
-            
-        ])
-    }
-}

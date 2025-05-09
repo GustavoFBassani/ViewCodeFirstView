@@ -74,7 +74,6 @@ class TextFieldWithTitleView: UIView {
         }
     }
     
-    
     //MARK: SETTERS
     var delegate: UITextFieldDelegate? {
         didSet {

@@ -9,9 +9,10 @@ import UIKit
 
 extension EmptyStateView: ViewSetupProtocol {
     func addSubViews() {
-//        view.addSubview(tasksTitle)
+
         addSubview(mainStack)
         addSubview(buttonComponent)
+
     }
     
     func setupConstraints() {
