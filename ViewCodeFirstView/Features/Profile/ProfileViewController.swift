@@ -78,16 +78,12 @@ class ProfileViewController: UIViewController {
         date.datePickerMode = .date
         date.preferredDatePickerStyle = .compact
         
-        if let userDate = user?.date {
-            date.date = userDate
-        }
-        
         let formatter = DateFormatter()
         
         formatter.dateFormat = "yyyy/MM/dd"
         
-        if let customDate = formatter.date(from: "2024/06/10") {
-            date.setDate(customDate, animated: false)
+        if let userDate = user?.date {
+            date.date = userDate
         }
         
         return date

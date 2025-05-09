@@ -68,6 +68,10 @@ class TextFieldWithTitleView: UIView {
             return componentTextField.text
             
         }
+        set {
+            
+            componentTextField.text = newValue
+        }
     }
     
     

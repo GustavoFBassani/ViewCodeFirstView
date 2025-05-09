@@ -55,9 +55,6 @@ class ButtonView: UIView {
         }
     }
     
-    
-
-    
     //MARK: INITS
     override init(frame: CGRect) {
         

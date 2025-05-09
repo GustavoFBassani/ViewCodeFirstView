@@ -46,6 +46,18 @@ class DescriptionView: UIView {
         return textField
         
     }()
+    
+    //MARK: GET TEXTFIELD TASK
+    
+    var taskTextField: String?  { get { componentTextField.text } }
+    
+    var setTextField: String? {
+        didSet {
+            
+            componentTextField.text = setTextField
+            
+        }
+    }
 
     //MARK: INITS
     override init(frame: CGRect) {

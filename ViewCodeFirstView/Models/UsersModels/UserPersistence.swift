@@ -10,19 +10,6 @@ import Foundation
 let key: String = "users"
 let keyUserLogged: String = "userLogged"
 
-struct User: Codable {
-    
-    var name: String
-    var date: Date
-    var email: String
-    var password: String
-    
-}
-
-struct Users: Codable {
-    var users: [User]
-}
-
 struct Persistence {
     
     static func getUsers() -> Users? {
@@ -48,9 +35,32 @@ struct Persistence {
     
     
     static func saveUser(newUser: User) {
-
-        var users = getUsers() ?? Users(users: [])
-        users.users.append(newUser)
+        
+        var users = getUsers() ?? Users(usersList: [])
+        users.usersList.append(newUser)
+        
+        do {
+            
+            let encoder = JSONEncoder()
+            let encodedUsers = try encoder.encode(users)
+            UserDefaults.standard.set(encodedUsers, forKey: key)
+            
+        } catch {
+            
+            print(error.localizedDescription)
+            
+        }
+    }
+    
+    static func removeUserAndSaveList(userToRemove: User) {
+        
+        var users = getUsers() ?? Users(usersList: [])
+        
+        users.usersList.removeAll { user in
+            
+            user == userToRemove
+            
+        }
         
         do {
             

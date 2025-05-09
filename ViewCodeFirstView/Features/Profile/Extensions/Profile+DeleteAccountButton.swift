@@ -11,39 +11,30 @@ extension ProfileViewController {
     
     @objc func deleteAccount() {
         
-        //MARK: ALERTA PARA DELETAR CONTA.
-        //        lazy var alertComponent: AlertView? = {
-        //
-        //            let alertView = AlertView(viewController: self)
-        //
-        //            alertView.alertController = .init(title: "Delete Account?", message: "his action will permanently remove your account and all associated data. Are you sure you want to continue?", preferredStyle: .actionSheet)
-        //
-        //            let alertAction = UIAlertAction(title: "delete", style: .destructive)
-        //            alertView.alertController.addAction(alertAction)
-        //
-        //            return alertView
-        //
-        //        }()
-        //        if let viewController = alertComponent?.alertController {
-        //
-        //            present(viewController, animated: true)
-        //
-        //        }
+        do {
+            
+            if let userToDelete = UserDefaults.standard.data(forKey: keyUserLogged) {
+                
+                let decoder = JSONDecoder()
+                let decodedUser = try decoder.decode(User.self, from: userToDelete)
+                
+                Persistence.removeUserAndSaveList(userToRemove: decodedUser)
+                
+            }
+            
+        } catch {
+            
+            print(error.localizedDescription)
+            
+        }
+        
+        UserDefaults.standard.removeObject(forKey: keyUserLogged)
         
         
+        //MARK: TRANSITION TO LoginViewController
+        let navController = UINavigationController(rootViewController: LoginViewController())
         
-        
-        //        let usersStruct = Persistence.getUsers()
-        //        let loggedUser = UserDefaults.standard.value(forKey: keyUserLogged)
-        //
-        //        let userToDelete = usersStruct?.users.filter { User in
-        //            if let User = loggedUser as? User {
-        //
-        //            }
-        //        }
-        //
-        //    }
+        (UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate)?.changeRootViewController(navController)
         
     }
-    
 }

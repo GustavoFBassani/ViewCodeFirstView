@@ -14,8 +14,9 @@ extension ProfileViewController {
         UserDefaults.standard.removeObject(forKey: keyUserLogged)
         
         //MARK: TRANSITION TO LoginViewController
-        let loginViewController = LoginViewController()
-        (UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate)?.changeRootViewController(loginViewController)
+        let navController = UINavigationController(rootViewController: LoginViewController())
+        
+        (UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate)?.changeRootViewController(navController)
     
     }
     

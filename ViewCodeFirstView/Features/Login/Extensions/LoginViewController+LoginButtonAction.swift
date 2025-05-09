@@ -11,7 +11,7 @@ import UIKit
 extension LoginViewController {
     @objc func handleAccountButtonTap() {
         
-        let users = Persistence.getUsers()?.users ?? []
+        let users = Persistence.getUsers()?.usersList ?? []
         var ExistentUser: User?
         
         let userExists = users.contains { user in
@@ -42,6 +42,7 @@ extension LoginViewController {
             
             //MARK: TRANSITION TO TabBarViewController
             let TabBarViewController = TabBarViewController()
+            
             (UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate)?.changeRootViewController(TabBarViewController)
             
         } else  {

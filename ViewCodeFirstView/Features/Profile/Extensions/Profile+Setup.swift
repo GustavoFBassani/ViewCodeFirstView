@@ -16,11 +16,8 @@ extension ProfileViewController: ViewSetupProtocol {
     
     func setupConstraints() {
         NSLayoutConstraint.activate([
-        
-            profileTitle.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 47),
-            profileTitle.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 16),
             
-            mainStack.topAnchor.constraint(equalTo: profileTitle.bottomAnchor, constant: 20),
+            mainStack.topAnchor.constraint(equalTo: view.topAnchor, constant: 170),
             mainStack.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 16),
             mainStack.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -16),
             
@@ -34,12 +31,14 @@ extension ProfileViewController: ViewSetupProtocol {
         ])
     }
     
-    
     func setupAdditionalConfiguration() {
         
-        view.backgroundColor = .backPrimary
+        view.backgroundColor = .backSecondary
         
+        //MARK: NAVIGATION BAR TITLE
+        let customNavigationTitle = UIBarButtonItem(customView: profileTitle)
         
+        navigationItem.leftBarButtonItem = customNavigationTitle
         
     }
 }

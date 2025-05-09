@@ -8,7 +8,7 @@ import UIKit
 
 class NewTaskViewController: UIViewController {
     
-    lazy var taskComponent: TextFieldWithTitleView = {
+    lazy var taskNameComponent: TextFieldWithTitleView = {
         
         let task = TextFieldWithTitleView()
         task.translatesAutoresizingMaskIntoConstraints = false
@@ -20,15 +20,25 @@ class NewTaskViewController: UIViewController {
         return task
         
     }()
-        
+    
     
     lazy var categoryComponent = categoryView()
     
     lazy  var descriptionComponent = DescriptionView()
     
+    weak var delegate: addTaskDelegate?
+    
+    func cleanViewValues() {
+        
+        descriptionComponent.setTextField = ""
+        
+        categoryComponent.selectedTask = nil
+        
+    }
+    
     lazy var mainStack: UIStackView = {
         
-        let stack = UIStackView(arrangedSubviews: [taskComponent,categoryComponent,descriptionComponent])
+        let stack = UIStackView(arrangedSubviews: [taskNameComponent,categoryComponent,descriptionComponent])
         
         stack.translatesAutoresizingMaskIntoConstraints = false
         stack.spacing = 20

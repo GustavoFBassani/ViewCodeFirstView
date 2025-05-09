@@ -37,6 +37,29 @@ class categoryView: UIView {
         
     }()
     
+    //ordering tasks and maping to UIAction (necessary for button menu) and passing to selectedTask var
+    private var taskSelection: [UIAction] {
+        
+        let orderedTasks = TaskEnum.allCases.sorted(by: {$0.rawValue < $1.rawValue})
+        
+        let tasksTransformedToUIAction = orderedTasks.map { taskType in
+            UIAction(title: taskType.rawValue, image: UIImage(systemName: taskType.imageName)) { [weak self] action in self?.selectedTask = taskType}
+            
+        }
+        
+        return tasksTransformedToUIAction
+        
+    }
+    
+    //fetch selected task Enum and (used for the button title and used for save the the task in tableview)
+    var selectedTask: TaskEnum? {
+        didSet {
+            
+            selectButton.setTitle(selectedTask?.rawValue, for: .normal)
+            
+        }
+    }
+    
     lazy var selectButton: UIButton = {
         
         let button = UIButton()
@@ -44,17 +67,20 @@ class categoryView: UIView {
         button.translatesAutoresizingMaskIntoConstraints = false
         button.setTitleColor(.accent, for: .normal)
         button.backgroundColor = .backTertiary
-        button.layer.cornerRadius = 12 
+        button.layer.cornerRadius = 12
+        button.showsMenuAsPrimaryAction = true
         
         var config = UIButton.Configuration.plain()
         config.title = "Select"
         config.indicator = .popup
         button.configuration = config
         
+        button.menu = UIMenu(title: "Task Type", options: [.singleSelection], children: taskSelection)
+        
         return button
         
     }()
-    
+        
     
     //MARK: INITS
     override init(frame: CGRect) {
