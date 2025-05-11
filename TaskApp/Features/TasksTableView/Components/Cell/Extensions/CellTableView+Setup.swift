@@ -7,7 +7,7 @@
 
 import UIKit
 
-extension TableViewCell: ViewSetupProtocol {
+extension CellTableView: ViewSetupProtocol {
     func addSubViews() {
         
         contentView.addSubview(stack)

@@ -17,25 +17,10 @@ class TaskDetailsViewController: UIViewController {
         task.translatesAutoresizingMaskIntoConstraints = false
         task.labelText = "Task"
         task.textFieldBackGroundColor = .backTertiary
-        task.textFieldPlaceHolderTextColor = .labTertiary
+        task.textFieldPlaceHolderTextColor = .labPrimary
         task.getAndSetTextField = recoveredTask?.taskName
         
         return task
-        
-    }()
-    
-    lazy var statusComponent: StatusView = {
-        
-        let statusView = StatusView()
-        
-        
-        guard let task = recoveredTask else { fatalError() }
-        
-        print(task.taskIsDone)
-        statusView.taskIsDone = task.taskIsDone
-        statusView.changeButtonStatus()
-       
-        return statusView
         
     }()
     
@@ -49,10 +34,26 @@ class TaskDetailsViewController: UIViewController {
         
     }()
     
+    lazy var statusComponent: StatusView = {
+        
+        let statusView = StatusView()
+        
+        
+        guard let task = recoveredTask else { fatalError() }
+        
+        statusView.taskIsDone = task.taskIsDone
+        statusView.changeButtonStatus()
+       
+        return statusView
+        
+    }()
+    
     lazy var descriptions: DescriptionView = {
         
         let description = DescriptionView()
+        
         description.taskTextField = recoveredTask?.taskDetails
+        description.descriptionTextField.textColor = .labPrimary
         
         return description
         

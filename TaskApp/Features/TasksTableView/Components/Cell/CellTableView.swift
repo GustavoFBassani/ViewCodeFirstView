@@ -7,7 +7,7 @@
 
 import UIKit
 
-class TableViewCell: UITableViewCell {
+class CellTableView: UITableViewCell {
     
     static let reuseIdentifier = "TaskCell-Identifies"
     

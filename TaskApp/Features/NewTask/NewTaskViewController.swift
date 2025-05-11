@@ -8,8 +8,6 @@ import UIKit
 
 class NewTaskViewController: UIViewController {
         
-    
-    
     lazy var taskNameComponent: TextFieldWithTitleView = {
         
         let task = TextFieldWithTitleView()
@@ -17,29 +15,16 @@ class NewTaskViewController: UIViewController {
         task.translatesAutoresizingMaskIntoConstraints = false
         task.labelText = "Task"
         task.textFieldBackGroundColor = .backTertiary
-        task.textFieldPlaceHolderTextColor = .labTertiary
+        task.textFieldPlaceHolderTextColor = .labSecondary
         task.textFieldplaceHolder = "Your task name here"
         
         return task
         
     }()
     
-     var categoryComponent = categoryView()
+    lazy var categoryComponent = categoryView()
     
-    lazy  var descriptionComponent = DescriptionView()
-    
-    lazy var descriptionLabel: UILabel = {
-        
-        var label = UILabel()
-        
-        label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = "Description"
-        label.textColor = .labPrimary
-        label.font = UIFont.systemFont(ofSize: 16, weight: .semibold)
-        
-        return label
-        
-    }()
+    lazy var descriptionComponent = DescriptionView()
     
     weak var delegate: addTaskDelegate?
     

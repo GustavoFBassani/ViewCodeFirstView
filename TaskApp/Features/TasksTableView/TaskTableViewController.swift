@@ -117,7 +117,7 @@ class TaskViewController: UIViewController, addTaskDelegate {
         
         buildContent()
         setup()
-        tableView.register(TableViewCell.self, forCellReuseIdentifier: TableViewCell.reuseIdentifier)
+        tableView.register(CellTableView.self, forCellReuseIdentifier: CellTableView.reuseIdentifier)
         
     }
     
