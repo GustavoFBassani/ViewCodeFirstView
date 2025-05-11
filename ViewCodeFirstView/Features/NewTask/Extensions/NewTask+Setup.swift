@@ -17,7 +17,7 @@ extension NewTaskViewController: ViewSetupProtocol {
 
         }
         
-        view.addSubview(taskNameComponent)
+      view.addSubview(taskNameComponent)
         view.addSubview(mainStack)
     }
     

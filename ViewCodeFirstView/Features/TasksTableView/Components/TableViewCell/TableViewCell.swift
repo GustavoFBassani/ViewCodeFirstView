@@ -33,18 +33,12 @@ class TableViewCell: UITableViewCell {
         
     }()
     
-    var taskIsDone = false
     
     var action: () -> Void = { }
     
+    // chamando o action que recebeu a atribuicao de buttonaction na config
     @objc func buttonTapped() {
-        
         action()
-        
-        taskIsDone.toggle()
-
-        buttonCircle.setImage(UIImage(systemName: taskIsDone ? "checkmark.circle.fill" : "circle") , for: .normal)
-        
     }
     
     lazy var stack: UIStackView = {
@@ -67,8 +61,7 @@ class TableViewCell: UITableViewCell {
         
         buttonCircle.setImage(UIImage(systemName: taskIsDone ? "checkmark.circle.fill" : "circle") , for: .normal)
         
-        self.taskIsDone = taskIsDone
-        
+        //atribui ao action o buttonAction que eu defini lá na cell
         self.action = buttonAction
         
     }

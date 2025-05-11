@@ -17,6 +17,8 @@ extension ProfileViewController: ViewSetupProtocol {
     func setupConstraints() {
         NSLayoutConstraint.activate([
             
+            dateLabel.widthAnchor.constraint(equalToConstant: 247),
+            
             mainStack.topAnchor.constraint(equalTo: view.topAnchor, constant: 170),
             mainStack.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 16),
             mainStack.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -16),

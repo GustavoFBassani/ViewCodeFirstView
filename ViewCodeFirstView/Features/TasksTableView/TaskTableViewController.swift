@@ -58,7 +58,6 @@ class TaskViewController: UIViewController, addTaskDelegate {
     var allTasksRecovered = TasksPersistence.getAllTasks() {
         didSet{
             
-            print("Novas tasks:", allTasksRecovered.allTasks)
             buildContent()
             tableView.reloadData()
             
@@ -106,7 +105,6 @@ class TaskViewController: UIViewController, addTaskDelegate {
         return rows
     }
     
-    
     func buildContent() {
         
         sections = buildSections()
@@ -124,10 +122,11 @@ class TaskViewController: UIViewController, addTaskDelegate {
     }
     
     //MARK:
-    func getTask(by indexPath: IndexPath) -> Task {
+    func getTaskByIndexPath(by indexPath: IndexPath) -> Task {
         
         // rows is an array of array of tasks... it means rows[0] -> first array of sections [tasks]  and so on...
         // rows[indexPath.section] -> [Task] of the section
+        
         let tasksOfSection = rows[indexPath.section]
         // row[indexPath.section][indexPath.row] -> task of an list of tasks of an list of lists of tasks
         let task = tasksOfSection[indexPath.row]
@@ -141,7 +140,7 @@ class TaskViewController: UIViewController, addTaskDelegate {
     func didAddTask() {
         
         allTasksRecovered = TasksPersistence.getAllTasks()
-        
+        buildContent()
     }
 }
 

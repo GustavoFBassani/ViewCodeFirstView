@@ -16,12 +16,12 @@ extension LoginViewController {
         
         let userExists = users.contains { user in
             
-            if user.email == emailComponent.getTextField && user.password == passwordComponent.getTextField {
+            if user.email == emailComponent.getAndSetTextField && user.password == passwordComponent.getAndSetTextField {
                 
                 ExistentUser = User(name: user.email, date: user.date, email: user.email, password: user.password)
             }
             
-            return user.email == emailComponent.getTextField && user.password == passwordComponent.getTextField
+            return user.email == emailComponent.getAndSetTextField && user.password == passwordComponent.getAndSetTextField
             
         }
         

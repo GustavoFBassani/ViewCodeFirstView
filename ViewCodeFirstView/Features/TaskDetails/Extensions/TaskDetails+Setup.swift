@@ -27,7 +27,7 @@ extension TaskDetailsViewController: ViewSetupProtocol {
             mainStack.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 16),
             mainStack.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -16),
             
-            descriptionComponent.heightAnchor.constraint(equalToConstant: 141),
+            descriptions.heightAnchor.constraint(equalToConstant: 141),
             
             categoriesComponent.heightAnchor.constraint(equalToConstant: 44),
 
@@ -59,7 +59,7 @@ extension TaskDetailsViewController: ViewSetupProtocol {
         //MARK: NAVIGATION ADD BUTTON
         let addButton = UIButton(type: .system)
         
-        addButton.setTitle("add", for: .normal)
+        addButton.setTitle("Done", for: .normal)
         addButton.tintColor = .accent
         addButton.addTarget(self, action: #selector(addButtonTapped), for: .touchUpInside)
         

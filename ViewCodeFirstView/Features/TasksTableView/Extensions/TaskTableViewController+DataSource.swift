@@ -33,12 +33,25 @@ extension TaskViewController: UITableViewDataSource {
         
         guard let cell = tableView.dequeueReusableCell(withIdentifier: TableViewCell.reuseIdentifier, for: indexPath) as? TableViewCell else { return UITableViewCell() }
         
-        let task = getTask(by: indexPath)
+        var task = getTaskByIndexPath(by: indexPath)
         
-        cell.config(labelText: task.taskName, taskIsDone: false) {
+        cell.config(labelText: task.taskName, taskIsDone: task.taskIsDone, buttonAction: {
             [weak self] in
             
-        }
+            // passando pra config tudo isso
+            
+            // atualizar ela
+            task.taskIsDone.toggle()
+            // pegar todas as tasks
+            var taskList = TasksPersistence.getAllTasks().allTasks
+            // atualizar na lista
+            let index = taskList.firstIndex(where: {$0.id == task.id})!
+            taskList[index] = task
+            // salvar
+            TasksPersistence.saveTask(allTasksToSave: AllTasks(allTasks: taskList))
+            
+            self?.didAddTask()
+        })
         
         return cell
         

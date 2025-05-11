@@ -31,6 +31,12 @@ class StatusView: UIView {
         
     }
     
+    func changeButtonStatus() {
+        
+        statusButton.setImage(UIImage(systemName: taskIsDone ? "checkmark.circle.fill" : "circle") , for: .normal)
+        
+    }
+    
     lazy var statusLabel: UILabel = {
         
         var label = UILabel()

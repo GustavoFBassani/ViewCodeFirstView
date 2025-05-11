@@ -9,8 +9,7 @@ import UIKit
 
 class TaskDetailsViewController: UIViewController {
     
-    var taskTitle: String?
-    var taskCategory: String?
+    var recoveredTask: Task?
     
     lazy var NameComponent: TextFieldWithTitleView = {
         
@@ -19,22 +18,51 @@ class TaskDetailsViewController: UIViewController {
         task.labelText = "Task"
         task.textFieldBackGroundColor = .backTertiary
         task.textFieldPlaceHolderTextColor = .labTertiary
+        task.getAndSetTextField = recoveredTask?.taskName
         
         return task
         
     }()
     
-    lazy var statusComponent = StatusView()
+    lazy var statusComponent: StatusView = {
+        
+        let statusView = StatusView()
+        
+        
+        guard let task = recoveredTask else { fatalError() }
+        
+        print(task.taskIsDone)
+        statusView.taskIsDone = task.taskIsDone
+        statusView.changeButtonStatus()
+       
+        return statusView
+        
+    }()
     
-    lazy var categoriesComponent = categoryView()
+    lazy var categoriesComponent: categoryView = {
+        
+        let category = categoryView()
+        
+        category.selectedTask = recoveredTask?.tasksTypeEnum
+        
+        return category
+        
+    }()
     
-    lazy  var descriptionComponent =  DescriptionView()
+    lazy var descriptions: DescriptionView = {
+        
+        let description = DescriptionView()
+        description.taskTextField = recoveredTask?.taskDetails
+        
+        return description
+        
+    }()
     
     weak var delegate: addTaskDelegate?
     
     lazy var mainStack: UIStackView = {
         
-        let stack = UIStackView(arrangedSubviews: [NameComponent,categoriesComponent,statusComponent,descriptionComponent])
+        let stack = UIStackView(arrangedSubviews: [NameComponent,categoriesComponent,statusComponent,descriptions])
         
         stack.translatesAutoresizingMaskIntoConstraints = false
         stack.spacing = 20
@@ -50,5 +78,6 @@ class TaskDetailsViewController: UIViewController {
         setup()
 
     }
-    
 }
+
+

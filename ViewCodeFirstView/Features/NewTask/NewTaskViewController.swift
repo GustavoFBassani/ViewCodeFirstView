@@ -7,10 +7,13 @@
 import UIKit
 
 class NewTaskViewController: UIViewController {
+        
+    
     
     lazy var taskNameComponent: TextFieldWithTitleView = {
         
         let task = TextFieldWithTitleView()
+        
         task.translatesAutoresizingMaskIntoConstraints = false
         task.labelText = "Task"
         task.textFieldBackGroundColor = .backTertiary
@@ -21,16 +24,28 @@ class NewTaskViewController: UIViewController {
         
     }()
     
-    
-    lazy var categoryComponent = categoryView()
+     var categoryComponent = categoryView()
     
     lazy  var descriptionComponent = DescriptionView()
+    
+    lazy var descriptionLabel: UILabel = {
+        
+        var label = UILabel()
+        
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.text = "Description"
+        label.textColor = .labPrimary
+        label.font = UIFont.systemFont(ofSize: 16, weight: .semibold)
+        
+        return label
+        
+    }()
     
     weak var delegate: addTaskDelegate?
     
     func cleanViewValues() {
         
-        descriptionComponent.setTextField = ""
+        descriptionComponent.taskTextField = ""
         
         categoryComponent.selectedTask = nil
         
@@ -53,5 +68,20 @@ class NewTaskViewController: UIViewController {
         setup()
         
     }
-    
+}
+
+extension NewTaskViewController: UITextViewDelegate {
+    func textViewDidBeginEditing(_ textView: UITextView) {
+        if textView.text == "Seu placeholder" {
+            textView.text = ""
+            textView.textColor = .label
+        }
+    }
+
+    func textViewDidEndEditing(_ textView: UITextView) {
+        if textView.text.isEmpty {
+            textView.text = "Seu placeholder"
+            textView.textColor = .labSecondary
+        }
+    }
 }

@@ -52,7 +52,8 @@ class ProfileViewController: UIViewController {
         
         name.labelText = "Name"
         name.textFieldText = user?.name
-    
+        name.textFieldEnableToEdit = false
+        
         return name
         
     }()
@@ -74,10 +75,8 @@ class ProfileViewController: UIViewController {
         
         let date = UIDatePicker()
         
-        date.translatesAutoresizingMaskIntoConstraints = false
         date.datePickerMode = .date
         date.preferredDatePickerStyle = .compact
-        
         let formatter = DateFormatter()
         
         formatter.dateFormat = "yyyy/MM/dd"
@@ -87,7 +86,6 @@ class ProfileViewController: UIViewController {
         }
         
         return date
-        
     }()
     
     lazy var dateStack: UIStackView = {
@@ -101,6 +99,7 @@ class ProfileViewController: UIViewController {
         return stack
         
     }()
+
     
     //MARK: EMAIL STACK
     lazy var emailComponent: TextFieldWithTitleView = {
@@ -111,6 +110,7 @@ class ProfileViewController: UIViewController {
         email.labelText = "Email"
         email.textFieldText = user?.email
         email.textFieldplaceHolder = ""
+        email.textFieldEnableToEdit = false
         
         return email
         

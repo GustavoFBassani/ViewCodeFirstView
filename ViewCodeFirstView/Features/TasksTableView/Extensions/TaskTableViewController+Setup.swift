@@ -48,7 +48,7 @@ extension TaskViewController: ViewSetupProtocol {
         navigationController?.navigationBar.largeTitleTextAttributes
         = [
             
-            .font: UIFont(name: "SFProRounded-Bold", size: 34),
+            .font: UIFont(name: "SFProRounded-Bold", size: 34) as Any,
             .foregroundColor: UIColor.labPrimary
             
         ]

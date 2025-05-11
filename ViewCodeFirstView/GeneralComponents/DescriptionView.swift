@@ -10,7 +10,7 @@ import UIKit
 class DescriptionView: UIView {
     
     //MARK: LABEL
-    private lazy var componentLabel: UILabel = {
+    lazy var descriptionLabel: UILabel = {
         
         var label = UILabel()
         
@@ -23,25 +23,21 @@ class DescriptionView: UIView {
         
     }()
     
-    //MARK: TEXTFIELD
-    private lazy var componentTextField: UITextField = {
-        
-        var textField = UITextField()
+    lazy var descriptionTextField: UITextView = {
+       
+        var textField = UITextView()
         
         textField.translatesAutoresizingMaskIntoConstraints = false
-        textField.layer.cornerRadius = 8
-        textField.leftView = UIView(frame: CGRect(x: 0, y: 0, width: 12, height: 20))
-        textField.leftViewMode = .always
+        textField.text = "More details about task"
+        textField.textContainerInset = UIEdgeInsets(top: 8, left: 8, bottom: 8, right: 8) // ou conforme seu design
+        textField.textAlignment = .left
+        textField.isScrollEnabled = true
+        textField.isEditable = true
+        textField.isSelectable = true
+        textField.font = .systemFont(ofSize: 17)
+        textField.textColor = .labSecondary
         textField.backgroundColor = .backTertiary
-        textField.layer.cornerRadius = 12
-        
-        textField.attributedPlaceholder = NSAttributedString(
-            string: "More details about task",
-            attributes: [
-                .foregroundColor: UIColor.labSecondary,
-                .font: UIFont.systemFont(ofSize: 17)
-            ]
-        )
+        textField.layer.cornerRadius = 8
         
         return textField
         
@@ -49,15 +45,13 @@ class DescriptionView: UIView {
     
     //MARK: GET TEXTFIELD TASK
     
-    var taskTextField: String?  { get { componentTextField.text } }
-    
-    var setTextField: String? {
-        didSet {
-            
-            componentTextField.text = setTextField
-            
-        }
+    var taskTextField: String?  {
+        
+        set {descriptionTextField.text = newValue }
+        get { descriptionTextField.text }
+        
     }
+    
 
     //MARK: INITS
     override init(frame: CGRect) {
@@ -80,8 +74,8 @@ extension DescriptionView: ViewSetupProtocol {
     
     func addSubViews() {
         
-        addSubview(componentLabel)
-        addSubview(componentTextField)
+        addSubview(descriptionLabel)
+        addSubview(descriptionTextField)
         
     }
         
@@ -90,16 +84,16 @@ extension DescriptionView: ViewSetupProtocol {
         
         NSLayoutConstraint.activate([
         
-            componentLabel.topAnchor.constraint(equalTo: self.topAnchor),
-            componentLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor),
-            componentLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor),
-            componentLabel.heightAnchor.constraint(equalToConstant: 21),
+            descriptionLabel.topAnchor.constraint(equalTo: self.topAnchor),
+            descriptionLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor),
+            descriptionLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor),
+            descriptionLabel.heightAnchor.constraint(equalToConstant: 21),
             
-            componentTextField.topAnchor.constraint(equalTo: componentLabel.bottomAnchor, constant: 8),
-            componentTextField.leadingAnchor.constraint(equalTo: self.leadingAnchor),
-            componentTextField.trailingAnchor.constraint(equalTo: self.trailingAnchor),
-            componentTextField.bottomAnchor.constraint(equalTo: self.bottomAnchor),
-            componentTextField.heightAnchor.constraint(equalToConstant: 112)
+            descriptionTextField.topAnchor.constraint(equalTo: descriptionLabel.bottomAnchor, constant: 8),
+            descriptionTextField.leadingAnchor.constraint(equalTo: self.leadingAnchor),
+            descriptionTextField.trailingAnchor.constraint(equalTo: self.trailingAnchor),
+            descriptionTextField.bottomAnchor.constraint(equalTo: self.bottomAnchor),
+            descriptionTextField.heightAnchor.constraint(equalToConstant: 112)
             
         ])
         

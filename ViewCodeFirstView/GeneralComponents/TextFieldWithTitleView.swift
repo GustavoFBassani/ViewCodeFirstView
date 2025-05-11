@@ -62,7 +62,7 @@ class TextFieldWithTitleView: UIView {
     }()
     
     //MARK: GETTERS
-    var getTextField: String? {
+    var getAndSetTextField: String? {
         get {
             
             return componentTextField.text
@@ -150,6 +150,16 @@ class TextFieldWithTitleView: UIView {
         }
     }
     
+    var textFieldEnableToEdit: Bool? {
+        get {
+            return componentTextField.isEnabled
+        }
+        set {
+            componentTextField.isEnabled = newValue ?? true
+        }
+    }
+
+    
     
     //MARK: INITS
     override init(frame: CGRect) {
@@ -190,3 +200,5 @@ extension TextFieldWithTitleView: ViewSetupProtocol {
         ])
     }
 }
+
+

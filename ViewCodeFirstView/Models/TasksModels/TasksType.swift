@@ -41,8 +41,6 @@ enum TaskEnum: String, CaseIterable, Codable {
         case .Shopping:
             return "cart.fill"
             
-        default:
-            return rawValue.lowercased() + ".fill"
             
         }
     }

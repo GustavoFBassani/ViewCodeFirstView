@@ -70,9 +70,9 @@ extension CreateAccountViewController {
         
         guard
             
-            let name = nameComponent.getTextField, !name.isEmpty,
-            let email = emailComponent.getTextField, !email.isEmpty,
-            let password = passwordComponent.getTextField, !password.isEmpty
+            let name = nameComponent.getAndSetTextField, !name.isEmpty,
+            let email = emailComponent.getAndSetTextField, !email.isEmpty,
+            let password = passwordComponent.getAndSetTextField, !password.isEmpty
                 
         else {
             

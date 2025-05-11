@@ -11,10 +11,18 @@ extension TaskViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
+        
         tableView.deselectRow(at: indexPath, animated: true)
         
-        let editingTaskVC = TaskDetailsViewController()
-        let navVC = UINavigationController(rootViewController: editingTaskVC)
+        let selectedTask = getTaskByIndexPath(by: indexPath)
+        
+        let taskDetailsVC = TaskDetailsViewController()
+        
+        taskDetailsVC.recoveredTask = selectedTask
+        
+        taskDetailsVC.delegate = self
+        
+        let navVC = UINavigationController(rootViewController: taskDetailsVC)
         present(navVC, animated: true)
         
     }
@@ -24,7 +32,7 @@ extension TaskViewController: UITableViewDelegate {
         let deleteAction = UIContextualAction(style: .destructive, title: "Delete") {[weak self] (deleteAction, view, completionHandler) in
             
             
-            if let taskToDelete = self?.getTask(by: indexPath) {
+            if let taskToDelete = self?.getTaskByIndexPath(by: indexPath) {
                 
                 TasksPersistence.deleteTasksAndSave(by: taskToDelete.id)
                 self?.allTasksRecovered = TasksPersistence.getAllTasks()

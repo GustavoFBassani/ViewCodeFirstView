@@ -15,18 +15,26 @@ extension TaskDetailsViewController {
     }
     
     @objc func addButtonTapped() {
+                
+        recoveredTask?.taskName = NameComponent.getAndSetTextField ?? ""
+        recoveredTask?.taskIsDone = statusComponent.taskIsDone
+        recoveredTask?.taskDetails = descriptions.taskTextField ?? ""
+                
+        var taskList = TasksPersistence.getAllTasks().allTasks
         
-//        if let enumTask = categoryComponent.selectedTask {
-//            
-//            let taskName:String? = taskNameComponent.getTextField
-//
-//            let newTask = Task(tasksTypeEnum: enumTask, taskName: taskName ?? "")
-//            
-//            TasksPersistence.addTaskAndSave(task: newTask)
-//            
-//        }
-                    
+        let index = taskList.firstIndex(where: {$0.id == recoveredTask?.id })
+        
+        if let recoveredTask {
+            
+            taskList[index ?? 0] = recoveredTask
+            
+        }
+        
+        TasksPersistence.saveTask(allTasksToSave: AllTasks(allTasks: taskList))
+        
         dismiss(animated: true)
+        
+        delegate?.didAddTask()
         
     }
 }
